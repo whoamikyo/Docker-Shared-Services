@@ -5,7 +5,7 @@ secrets:
 
 volumes:
   db-data:
-
+  
 Services:
 
   db:
