@@ -11,6 +11,8 @@ Services:
       start_period: 30s
     secrets:
       - db-password
+    volumes:
+      - db-data:/var/lib/mysql
     networks:
       - backnet
     environment:
@@ -37,3 +39,6 @@ secrets:
 networks:
   backnet:
   frontnet:
+
+volumes:
+  db-data:
