@@ -1,3 +1,11 @@
+
+secrets:
+  db-password:
+    file: db/password.txt
+
+volumes:
+  db-data:
+
 Services:
 
   db:
@@ -21,24 +29,3 @@ Services:
     expose:
       - 3306
       - 33060
-
-  proxy:
-    build: proxy
-    restart: always
-    ports:
-      - 80:80
-    depends_on: 
-      - backend
-    networks:
-      - frontnet
-
-secrets:
-  db-password:
-    file: db/password.txt
-
-networks:
-  backnet:
-  frontnet:
-
-volumes:
-  db-data:
