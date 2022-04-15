@@ -1,0 +1,19 @@
+
+services:
+  backend_asp:
+    build: backend_asp
+    restart: always
+    secrets:
+      - db-password
+    depends_on: 
+      - db
+    environment:
+      - ASPNETCORE_URLS=http://+:8000
+
+
+  proxy_asp:
+    build: proxy_asp
+    ports:
+      - 80:80
+    depends_on: 
+      - backend_asp
